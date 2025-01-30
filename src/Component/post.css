@@ -1,0 +1,178 @@
+/* General reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  body {
+    background-color: #121212; /* Dark background */
+    color: #E5E5E5; /* Light text for readability */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+  
+  /* Main container */
+  .post-container {
+    background-color: #1e1e1e; /* Dark background for the container */
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #333; /* Dark border for better contrast */
+  }
+  
+  /* Title */
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #FFFFFF; /* White title text */
+    text-align: center;
+  }
+  
+  /* Login Name Styling */
+  .login-name {
+    font-weight: 900; /* Thicker font weight for a bolder look */
+    font-size: 24px; /* Optional: Increase font size for better visibility */
+    color: #E5E5E5; /* Optional: Adjust text color if needed */
+  }
+  
+  
+  /* Post form */
+  .post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .input-field, .textarea-field {
+    border: 1px solid #444; /* Darker border color */
+    border-radius: 12px;
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 100%;
+    background-color: #262626; /* Slightly lighter background for inputs */
+    color: #E5E5E5;
+  }
+  
+  .input-field:focus, .textarea-field:focus {
+    outline: none;
+    border-color: #FF7F50; /* Focus border color (Orange-red for contrast) */
+  }
+  
+  .textarea-field {
+    min-height: 150px;
+    resize: none;
+  }
+  
+  /* Create Post Button */
+  .create-button {
+    background-color: #FF7F50; /* Orange-red button for better visibility */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #FF7F50; /* Same color border */
+  }
+  
+  .create-button:hover {
+    background-color: #FF4500; /* Darker shade for hover */
+  }
+  
+  /* Logout Button */
+  .logout-button {
+    background-color: #333; /* Dark background for logout */
+    color: #FF7F50; /* Orange-red text for logout */
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: background-color 0.3s ease;
+    border: 1px solid #444; /* Darker border for logout button */
+  }
+  
+  .logout-button:hover {
+    background-color: #444; /* Slightly lighter background on hover */
+  }
+  
+  /* Posts List */
+  .posts-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .posts-list {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .post-item {
+    background-color: #1e1e1e; /* Dark card background */
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid #444; /* Dark border around each post */
+  }
+  
+  .post-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF7F50; /* Orange-red for post title */
+    margin-bottom: 10px;
+  }
+  
+  .post-content {
+    font-size: 16px;
+    color: #D3D3D3; /* Lighter gray for post content */
+  }
+  
+  /* Message/Notification styling */
+  .message {
+    font-size: 14px;
+    color: #FF4500; /* Error/Success messages in red-orange */
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  /* Hover effects for posts */
+  .posts-list .post-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    background-color: #262626; /* Slightly lighter background on hover */
+  }
+  
+  /* Border styling for tables/blocks */
+  .block-table, .block-item {
+    border: 1px solid #333; /* Dark border for all blocks */
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #2a2a2a;
+    color: #E5E5E5;
+  }
+  
+  /* Card effect for individual posts or sections */
+  .block-item:hover, .post-item:hover {
+    background-color: #333; /* Lighter background on hover */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4); /* Shadow effect on hover */
+  }
+  
+  
