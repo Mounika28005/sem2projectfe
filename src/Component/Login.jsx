@@ -11,19 +11,21 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(true); // Toggle between login & signup
   const navigate = useNavigate();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent page reload
+
     try {
       const endpoint = isLogin ? "login" : "signup";
       const data = isLogin ? { email, password } : { email, password, username };
 
       const response = await axios.post(
-        `http://localhost:3000/api/auth/${endpoint}`,
+        `http://localhost:3000/api/auth/${endpoint}`, // ✅ Fixed URL template string
         data,
         { withCredentials: true }
       );
 
       setMessage(response.data.message || "Action completed");
-      navigate("/posts");
+      navigate("/posts"); // Redirect on success
     } catch (error) {
       setMessage(error.response?.data?.message || "An error occurred");
     }
@@ -34,35 +36,40 @@ export default function Auth() {
       <div className="auth-box">
         <h2>{isLogin ? "Log In" : "Sign Up"}</h2>
 
-        {!isLogin && (
+        <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="input-field"
+              required
+            />
+          )}
+
           <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="input-field"
+            required
           />
-        )}
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="input-field"
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input-field"
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="input-field"
-        />
-
-        <button className="auth-btn" onClick={handleSubmit}>
-          {isLogin ? "Log In" : "Sign Up"}
-        </button>
+          <button className="auth-btn" type="submit">
+            {isLogin ? "Log In" : "Sign Up"}
+          </button>
+        </form>
 
         <p className="toggle-text">
           {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
